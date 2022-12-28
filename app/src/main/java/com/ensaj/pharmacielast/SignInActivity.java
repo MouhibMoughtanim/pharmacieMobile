@@ -60,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
         // Instantiate The Request Queue:
         RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
         // The URL Posting TO:
-        String url = "http://192.168.8.116:9071/api/v1/user/login";
+        String url = "http://10.0.2.2:9071/api/v1/user/login";
 
         // Set Parameters:
         HashMap<String, String> params = new HashMap<String, String>();

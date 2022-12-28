@@ -1,23 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment" >
+    android:background="@color/white"
+    android:padding="10dp"
+    tools:context=".ui.gallery.GalleryFragment">
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/pharmacie_logo"
+        android:layout_width="227dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:srcCompat="@color/white" />
+
+    <TextView
+        android:id="@+id/pharmacie_titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Pharmacie Form"
+        android:gravity="center"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacie_logo"
+        tools:layout_editor_absoluteX="206dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacie_titre"
+        tools:layout_editor_absoluteX="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/pharmacie_nom"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="55dp"
+                android:paddingLeft="10dp"
+                android:background="@color/white"
+                android:hint="Pharmacie Nom"/>
+
+
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/pharmacie_adresse"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:layout_height="55dp"
+            android:hint="Pharmacie Address"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/pharmacie_latitude"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="55dp"
+                android:paddingLeft="10dp"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:hint="Latitude"/>
+
+            <EditText
+                android:id="@+id/pharmacie_longitude"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:layout_height="55dp"
+                android:hint="Longitude"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/pharmacie_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:padding="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:textFontWeight="700"
+            android:text="SAVE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/go_to_sign_in"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:onClick="goToSigInAct"
+            />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

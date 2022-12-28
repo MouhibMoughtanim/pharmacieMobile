@@ -1,5 +1,6 @@
 package com.ensaj.pharmacielast.request;
 
+import com.ensaj.pharmacielast.api.PharmacieApi;
 import com.ensaj.pharmacielast.api.VilleApi;
 
 
@@ -15,7 +16,7 @@ public class RetrofitRequest {
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
             retrofit = new retrofit2.Retrofit.Builder()
-                    .baseUrl("http://192.168.8.116:9071")
+                    .baseUrl("http://10.0.2.2:9071")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
@@ -23,8 +24,13 @@ public class RetrofitRequest {
     }
 
     private static VilleApi villeAPI = getRetrofitInstance().create(VilleApi.class);
+    private static PharmacieApi pharmacieAPI = getRetrofitInstance().create(PharmacieApi.class);
 
     public static VilleApi getVilleAPI() {
          return villeAPI;
+    }
+
+    public static PharmacieApi getPharmacieAPI() {
+        return pharmacieAPI;
     }
 }

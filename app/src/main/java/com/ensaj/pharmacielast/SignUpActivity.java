@@ -74,7 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
         // Instantiate The Request Queue:
         RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
         // The URL Posting TO:
-        String url = "http://192.168.8.116:9071/api/v1/user/register";
+        String url = "http://10.0.2.2:9071/api/v1/user/register";
 
 
 

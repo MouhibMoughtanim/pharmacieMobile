@@ -18,7 +18,10 @@
     <!-- For Sign In Page / Activity -->
     <string name="go_to_sign_up">Don\'t Have and account? Sign Up</string>
     <string name="title_activity_main2">MainActivity2</string>
-    <string name="menu_home2" >Home2</string>
-    <string name="menu_gallery2" >Gallery2</string>
-    <string name="menu_slideshow2" >Slideshow2</string>
+    <string name="menu_home2">Home2</string>
+    <string name="menu_gallery2">Gallery2</string>
+    <string name="menu_slideshow2">Slideshow2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pick_date">pick_date</string>
 </resources>
