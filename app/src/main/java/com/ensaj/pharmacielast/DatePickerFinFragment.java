@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.fragment.app.DialogFragment;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.zip.DataFormatException;
 
-public class DatePickerFragment extends DialogFragment
+public class DatePickerFinFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
     @Override
@@ -29,12 +29,14 @@ public class DatePickerFragment extends DialogFragment
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
         final Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR,year);
         c.set(Calendar.MONTH,month);
         c.set(Calendar.DAY_OF_MONTH,day);
-        String garde_debut_string = DateFormat.getDateInstance().format(c.getTime());
-        TextView garde_debut = (TextView) getActivity().findViewById(R.id.garde_debut);
-        garde_debut.setText(garde_debut_string);
+        String garde_fin_string = dateFormat.format(c.getTime());
+        TextView garde_fin = (TextView) getActivity().findViewById(R.id.garde_fin);
+        garde_fin.setText(garde_fin_string);
     }
 }

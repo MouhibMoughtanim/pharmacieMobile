@@ -1,7 +1,10 @@
 package com.ensaj.pharmacielast.request;
 
+import com.ensaj.pharmacielast.api.GardeApi;
 import com.ensaj.pharmacielast.api.PharmacieApi;
+import com.ensaj.pharmacielast.api.PharmacieDeGardeApi;
 import com.ensaj.pharmacielast.api.VilleApi;
+import com.ensaj.pharmacielast.model.Garde;
 
 
 import retrofit2.Retrofit;
@@ -25,11 +28,21 @@ public class RetrofitRequest {
 
     private static VilleApi villeAPI = getRetrofitInstance().create(VilleApi.class);
     private static PharmacieApi pharmacieAPI = getRetrofitInstance().create(PharmacieApi.class);
+    private static GardeApi gardeAPI = getRetrofitInstance().create(GardeApi.class);
+    private static PharmacieDeGardeApi pharmacieDeGardeAPI = getRetrofitInstance().create(PharmacieDeGardeApi.class);
+
+
+
 
     public static VilleApi getVilleAPI() {
          return villeAPI;
     }
-
+    public static GardeApi getGardeAPI() {
+        return gardeAPI;
+    }
+    public static PharmacieDeGardeApi getPharmacieDeGardeAPI() {
+        return pharmacieDeGardeAPI;
+    }
     public static PharmacieApi getPharmacieAPI() {
         return pharmacieAPI;
     }

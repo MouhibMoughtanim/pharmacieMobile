@@ -14,19 +14,19 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ZoneApi {
-    @POST("zones/save")
+    @POST("zones/add")
     Call<Zone> createZone(@Body Zone zone);
 
-    @PUT("zones/update/{id}")
+    @PUT("zones/updateZone/id={id}")
     Call<Zone> editZone(@Path("id") int id, @Body Zone zone);
 
-    @GET("zones/getZoneById/{id}")
+    @GET("zones/zone/id={id}")
     Call<Zone> getZoneById(@Path("id") int id);
 
     @GET("zones/all")
     Call<List<Zone>> getZones();
 
-    @DELETE("zones/delete/{id}")
+    @DELETE("zones/deleteZone/id={id}")
     Call<Void> deleteZone(@Path("id") int id);
 
 
