@@ -4,27 +4,27 @@ import java.sql.Date;
 
 public class PharmacieDeGarde {
 
-    private Date dateFin;
-    private Date dateDebut;
+    private String dateFin;
+    private String dateDebut;
     private Pharmacie pharmacie;
     private Garde garde;
 
     public PharmacieDeGarde() {
     }
 
-    public Date getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 
-    public Date getDateDebut() {
+    public String getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(String dateDebut) {
         this.dateDebut = dateDebut;
     }
 

@@ -1,10 +1,12 @@
 package com.ensaj.pharmacielast.request;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.ensaj.pharmacielast.Main2Activity;
 import com.ensaj.pharmacielast.model.Pharmacie;
 import com.ensaj.pharmacielast.model.Ville;
 
@@ -17,6 +19,7 @@ import retrofit2.Response;
 public class PharmacieApiClient {
 
     private MutableLiveData<List<Pharmacie>> mPharmacies;
+    private MutableLiveData<Pharmacie> mPharmacieByUserId;
     private static PharmacieApiClient instance;
 
     //singleton
@@ -30,19 +33,24 @@ public class PharmacieApiClient {
     //constructor and getters
     private PharmacieApiClient() {
         mPharmacies = new MutableLiveData<>();
-
+        mPharmacieByUserId = new MutableLiveData<>();
     }
     public LiveData<List<Pharmacie>> getPharmacies() {
         return mPharmacies;
     }
+    public LiveData<Pharmacie> getPharmacieByUserId() {
+        return mPharmacieByUserId;
+    }
 
 
     // Retrofit implementation
-    public void addPharmacieApi(Pharmacie pharmacie){
-        addPharmacie(pharmacie).enqueue(new Callback<Pharmacie>() {
+    public void addPharmacieApi(Pharmacie pharmacie,int user_id){
+        addPharmacie(pharmacie,user_id).enqueue(new Callback<Pharmacie>() {
             @Override
             public void onResponse(Call<Pharmacie> call, Response<Pharmacie> response) {
                 Pharmacie pharmacie1 = response.body();
+
+
                 System.out.println("Created: "+pharmacie1.getNom());
             }
 
@@ -69,12 +77,29 @@ public class PharmacieApiClient {
             }
         });
     }
+    public void getPharmacieByUserIdApi(int user_id){
+        getPharmacieByUserId(user_id).enqueue(new Callback<Pharmacie>() {
+            @Override
+            public void onResponse(Call<Pharmacie> call, Response<Pharmacie> response) {
+                Pharmacie pharmacie = response.body();
+                mPharmacieByUserId.postValue(pharmacie);
+            }
+
+            @Override
+            public void onFailure(Call<Pharmacie> call, Throwable t) {
+               mPharmacieByUserId.postValue(null);
+            }
+        });
+    }
 
     //Retrofit calls
     private Call<List<Pharmacie>> getPharmacie(){
         return RetrofitRequest.getPharmacieAPI().getPharmacies();
     }
-    private Call<Pharmacie> addPharmacie(Pharmacie pharmacie){
-        return RetrofitRequest.getPharmacieAPI().createPharmacie(pharmacie);
+    private Call<Pharmacie> getPharmacieByUserId(int user_id){
+        return RetrofitRequest.getPharmacieAPI().getPharmacieByUserId(user_id);
+    }
+    private Call<Pharmacie> addPharmacie(Pharmacie pharmacie,int user_id){
+        return RetrofitRequest.getPharmacieAPI().createPharmacie(pharmacie,user_id);
     }
 }

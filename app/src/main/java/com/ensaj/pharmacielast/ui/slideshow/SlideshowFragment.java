@@ -32,6 +32,7 @@ import com.ensaj.pharmacielast.model.PharmacieDeGarde;
 import com.ensaj.pharmacielast.model.Ville;
 import com.ensaj.pharmacielast.viewModels.GardeViewModel;
 import com.ensaj.pharmacielast.viewModels.PharmacieDeGardeViewModel;
+import com.ensaj.pharmacielast.viewModels.PharmacieViewModel;
 import com.ensaj.pharmacielast.viewModels.VilleViewModel;
 
 import java.sql.Date;
@@ -44,6 +45,8 @@ import java.util.List;
 public class SlideshowFragment extends Fragment {
     private GardeViewModel gardeViewModel;
     private PharmacieDeGardeViewModel pharmacieDeGardeViewModel;
+    private PharmacieViewModel pharmacieViewModel;
+
 
     private Spinner pharmacieGardeType;
     private FragmentSlideshowBinding binding;
@@ -70,15 +73,18 @@ public class SlideshowFragment extends Fragment {
         garde_debut = root.findViewById(R.id.garde_debut);
         garde_fin = root.findViewById(R.id.garde_fin);
         garde_text_id = root.findViewById(R.id.garde_text_id);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
         gardeViewModel = new ViewModelProvider(getActivity()).get(GardeViewModel.class);
         pharmacieDeGardeViewModel = new ViewModelProvider(getActivity()).get(PharmacieDeGardeViewModel.class);
+        pharmacieViewModel = new ViewModelProvider(getActivity()).get(PharmacieViewModel.class);
 
+        String user_id = getArguments().getString("user_id");
         ObserveAnyChange();
+        ObserveAnyChangePharmacieByUserId();
 
         searchGardesApi();
+        searchPharmacieByUserApi(Integer.parseInt(user_id));
 
         garde_date_debut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +106,7 @@ public class SlideshowFragment extends Fragment {
                    Garde garde = new Garde();
                    garde.setIdGarde(Integer.parseInt(garde_text_id.getText().toString()));
                    Pharmacie pharmacie = new Pharmacie();
-                   pharmacie.setId(4);
+                   pharmacie.setId(14);
                 PharmacieDeGarde pharmacieDeGarde = new PharmacieDeGarde();
                // pharmacieDeGarde.setDateFin(Date.valueOf());
                 // pharmacieDeGarde.setDateDebut(Date.valueOf(garde_debut.getText().toString()));
@@ -164,7 +170,19 @@ public class SlideshowFragment extends Fragment {
             }
         });
     }
+    private void ObserveAnyChangePharmacieByUserId(){
+        pharmacieViewModel.getPharmacieByUserId().observe(getViewLifecycleOwner(), new Observer<Pharmacie>() {
+            @Override
+            public void onChanged(Pharmacie pharmacie) {
+                if(pharmacie != null){
 
+                    System.out.println(pharmacie.getAdresse());
+
+                }
+
+            }
+        });
+    }
 
     public void showDatePickerDebutDialog(View v) {
         DialogFragment newFragment = new DatePickerDebutFragment();
@@ -176,6 +194,9 @@ public class SlideshowFragment extends Fragment {
     }
     public void searchGardesApi(){
         gardeViewModel.searchGardesApi();
+    }
+    public void searchPharmacieByUserApi(int user_id){
+        pharmacieViewModel.searchPharmacieByUserIdApi(user_id);
     }
     public void addPharmacieDeGarde(PharmacieDeGarde pharmacieDeGarde,String debut,String fin){
         pharmacieDeGardeViewModel.addPharmacieDeGarde(pharmacieDeGarde,debut,fin);

@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="10dp"
-    tools:context=".ui.gallery.GalleryFragment">
+    tools:context=".PharmacieFormActivity">
 
     <ImageView
-        android:id="@+id/pharmacie_logo"
+        android:id="@+id/pharmacie_logoA"
         android:layout_width="227dp"
         android:layout_height="109dp"
         android:layout_marginTop="16dp"
@@ -20,22 +20,22 @@
         app:srcCompat="@color/white" />
 
     <TextView
-        android:id="@+id/pharmacie_titre"
+        android:id="@+id/pharmacie_titreA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Pharmacie Form"
         android:gravity="center"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/pharmacie_logo"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacie_logoA"
         tools:layout_editor_absoluteX="206dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/pharmacie_titre"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacie_titreA"
         tools:layout_editor_absoluteX="10dp" >
 
         <LinearLayout
@@ -45,7 +45,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/pharmacie_nom"
+                android:id="@+id/pharmacie_nomA"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="55dp"
@@ -58,7 +58,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/pharmacie_adresse"
+            android:id="@+id/pharmacie_adresseA"
             android:layout_width="match_parent"
             android:padding="10dp"
             android:layout_marginTop="10dp"
@@ -73,7 +73,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/pharmacie_latitude"
+                android:id="@+id/pharmacie_latitudeA"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="55dp"
@@ -83,7 +83,7 @@
                 android:hint="Latitude"/>
 
             <EditText
-                android:id="@+id/pharmacie_longitude"
+                android:id="@+id/pharmacie_longitudeA"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:paddingLeft="10dp"
@@ -96,7 +96,7 @@
 
 
         <Button
-            android:id="@+id/pharmacie_btn"
+            android:id="@+id/pharmacie_btnA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -119,18 +119,6 @@
 
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textGallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

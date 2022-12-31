@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.ensaj.pharmacielast.helpers.StringHelper;
+import com.ensaj.pharmacielast.model.Pharmacie;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +63,7 @@ public class SignInActivity extends AppCompatActivity {
         // The URL Posting TO:
         String url = "http://10.0.2.2:9071/api/v1/user/login";
 
+
         // Set Parameters:
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("email", et_email.getText().toString());
@@ -73,24 +75,32 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+
                             // Get Values From Response Object:
+                            int user_id = (int) response.get("user_id");
                             String first_name = (String) response.get("first_name");
                             String last_name = (String) response.get("last_name");
                             String email = (String) response.get("email");
-                            boolean etat = (boolean) response.get("etat");
 
-                            if(etat){
+                            if(!response.isNull("pharmacie")){
+
                                 // Set Intent Actions:
-                                Intent goToAdminSide = new Intent(SignInActivity.this,Main2Activity.class);
+                                Intent goToAdminSide = new Intent(SignInActivity.this,AdminActivity.class);
                                 // Pass Values To Profile Activity:
+                                System.out.println(user_id);
+                                goToAdminSide.putExtra("user_id", user_id+"");
                                 goToAdminSide.putExtra("first_name", first_name);
                                 goToAdminSide.putExtra("last_name", last_name);
                                 goToAdminSide.putExtra("email", email);
                                 // Start Activity:
                                 startActivity(goToAdminSide);
                                 finish();
-                            }else if (!etat){
-                                Toast.makeText(SignInActivity.this, "Your registration has been successfull, but the admin hasn't accepted you yet ! ", Toast.LENGTH_LONG).show();
+
+                            }else if (response.isNull("pharmacie")){
+
+                                Intent goToPharmacieForm = new Intent(SignInActivity.this,PharmacieFormActivity.class);
+                                goToPharmacieForm.putExtra("user_id", user_id+"");
+                                startActivity(goToPharmacieForm);
                             }
 
                         }catch (JSONException e){

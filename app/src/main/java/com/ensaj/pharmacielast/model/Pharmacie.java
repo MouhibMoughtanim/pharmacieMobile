@@ -6,7 +6,7 @@ public class Pharmacie {
     private String adresse;
     private Double lat;
     private Double log;
-
+    private User user;
     private Zone zone;
 
     public Pharmacie() {
@@ -58,5 +58,13 @@ public class Pharmacie {
 
     public void setZone(Zone zone) {
         this.zone = zone;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

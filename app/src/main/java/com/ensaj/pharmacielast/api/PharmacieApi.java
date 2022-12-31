@@ -15,14 +15,17 @@ import retrofit2.http.Path;
 
 public interface PharmacieApi {
 
-    @POST("pharmacies/add")
-    Call<Pharmacie> createPharmacie(@Body Pharmacie pharmacie);
+    @POST("pharmacies/add/{user_id}")
+    Call<Pharmacie> createPharmacie(@Body Pharmacie pharmacie,@Path("user_id") int user_id);
 
     @PUT("pharmacies/updatePharmacie/id={id}")
     Call<Pharmacie> editPharmacie(@Path("id") int id, @Body Pharmacie pharmacie);
 
     @GET("pharmacies/pharmacie/id={id}")
     Call<Pharmacie> getPharmacieById(@Path("id") int id);
+
+    @GET("pharmacies/pharmacie/user_id={id}")
+    Call<Pharmacie> getPharmacieByUserId(@Path("id") int id);
 
     @GET("pharmacies/all")
     Call<List<Pharmacie>> getPharmacies();

@@ -55,7 +55,7 @@ public class PharmacieDeGardeApiClient {
             }
         });
     }
-   /* public void getPharmacieDeGardeApi(){
+   public void getPharmaciesDeGardeApi(){
         getPharmacieDeGarde().enqueue(new Callback<List<PharmacieDeGarde>>() {
             @Override
             public void onResponse(Call<List<PharmacieDeGarde>> call, Response<List<PharmacieDeGarde>> response) {
@@ -71,12 +71,12 @@ public class PharmacieDeGardeApiClient {
             }
         });
     }
-    */
+
 
     //Retrofit calls
-   /* private Call<List<PharmacieDeGarde>> getPharmacieDeGarde(){
-        return RetrofitRequest.getPharmacieDeGardeAPI().getPharmaciesDeGarde();
-    }*/
+    private Call<List<PharmacieDeGarde>> getPharmacieDeGarde(){
+        return RetrofitRequest.getPharmacieDeGardeAPI().getAllPharmaciesDeGarde();
+    }
     private Call<PharmacieDeGarde> addPharmacieDeGarde(PharmacieDeGarde pharmacieDeGarde,String debut,String fin){
         return RetrofitRequest.getPharmacieDeGardeAPI().createPharmacieDeGarde(pharmacieDeGarde,debut,fin);
     }

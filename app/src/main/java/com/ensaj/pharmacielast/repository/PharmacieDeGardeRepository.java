@@ -1,7 +1,12 @@
 package com.ensaj.pharmacielast.repository;
 
+import androidx.lifecycle.LiveData;
+
 import com.ensaj.pharmacielast.model.PharmacieDeGarde;
+import com.ensaj.pharmacielast.model.Ville;
 import com.ensaj.pharmacielast.request.PharmacieDeGardeApiClient;
+
+import java.util.List;
 
 public class PharmacieDeGardeRepository {
     private static PharmacieDeGardeRepository instance;
@@ -24,6 +29,12 @@ public class PharmacieDeGardeRepository {
         pharmacieDeGardeApiClient.addPharmacieDeGardeApi(pharmacieDeGarde,debut,fin);
         System.out.println("REPOSITORY");
 
+    }
+
+    public LiveData<List<PharmacieDeGarde>> getAllPharmaciesDeGarde(){return pharmacieDeGardeApiClient.getPharmaciesDeGarde();}
+
+    public void searchPharmaciesDeGarde(){
+        pharmacieDeGardeApiClient.getPharmaciesDeGardeApi();
     }
 
 }
