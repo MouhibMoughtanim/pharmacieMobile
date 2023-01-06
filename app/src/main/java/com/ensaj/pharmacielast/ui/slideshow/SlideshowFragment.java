@@ -56,6 +56,7 @@ public class SlideshowFragment extends Fragment {
     private TextView garde_debut;
     private TextView garde_fin;
     private TextView garde_text_id;
+    TextView pharmacie_id;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -73,6 +74,7 @@ public class SlideshowFragment extends Fragment {
         garde_debut = root.findViewById(R.id.garde_debut);
         garde_fin = root.findViewById(R.id.garde_fin);
         garde_text_id = root.findViewById(R.id.garde_text_id);
+        pharmacie_id = root.findViewById(R.id.pharmacie_id);
 
 
         gardeViewModel = new ViewModelProvider(getActivity()).get(GardeViewModel.class);
@@ -103,11 +105,10 @@ public class SlideshowFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                   Garde garde = new Garde();
-                   garde.setIdGarde(Integer.parseInt(garde_text_id.getText().toString()));
+                   Garde garde = new Garde();garde.setIdGarde(Integer.parseInt(garde_text_id.getText().toString()));
                    Pharmacie pharmacie = new Pharmacie();
-                   pharmacie.setId(14);
-                PharmacieDeGarde pharmacieDeGarde = new PharmacieDeGarde();
+                   pharmacie.setId(Integer.parseInt(pharmacie_id.getText().toString()));
+                 PharmacieDeGarde pharmacieDeGarde = new PharmacieDeGarde();
                // pharmacieDeGarde.setDateFin(Date.valueOf());
                 // pharmacieDeGarde.setDateDebut(Date.valueOf(garde_debut.getText().toString()));
                 pharmacieDeGarde.setGarde(garde);
@@ -177,6 +178,7 @@ public class SlideshowFragment extends Fragment {
                 if(pharmacie != null){
 
                     System.out.println(pharmacie.getAdresse());
+                    pharmacie_id.setText(pharmacie.getId()+"");
 
                 }
 

@@ -1,15 +1,31 @@
 package com.ensaj.pharmacielast.model;
 
-public class Pharmacie {
+import java.io.Serializable;
+
+public class Pharmacie implements Serializable {
     private int id;
     private String nom;
     private String adresse;
+    private String telephone;
+
+    private int etat;
     private Double lat;
     private Double log;
+
+
     private User user;
     private Zone zone;
 
+
     public Pharmacie() {
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public int getId() {
@@ -66,5 +82,13 @@ public class Pharmacie {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
     }
 }

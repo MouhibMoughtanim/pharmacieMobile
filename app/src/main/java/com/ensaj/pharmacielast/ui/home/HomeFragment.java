@@ -37,13 +37,15 @@ private RecyclerView recyclerView;
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
         recyclerView = root.findViewById(R.id.pharmacie_de_garde_recycle_view);
 
         pharmacieDeGardeViewModel = new ViewModelProvider(getActivity()).get(PharmacieDeGardeViewModel.class);
-
+        String user_id = getArguments().getString("user_id");
+        
         ObserveAnyChange();
 
-        searchPharmaciesDeGardeApi();
+        searchPharmaciesDeGardeByIdApi(Integer.parseInt(user_id));
 
 
         return root;
@@ -56,7 +58,7 @@ private RecyclerView recyclerView;
     }
 
     private void ObserveAnyChange(){
-        pharmacieDeGardeViewModel.getPharmaciesDeGarde().observe(getViewLifecycleOwner(), new Observer<List<PharmacieDeGarde>>() {
+        pharmacieDeGardeViewModel.getPharmaciesDeGardeById().observe(getViewLifecycleOwner(), new Observer<List<PharmacieDeGarde>>() {
             @Override
             public void onChanged(List<PharmacieDeGarde> pharmacieDeGardes) {
                 if(pharmacieDeGardes != null){
@@ -77,7 +79,7 @@ private RecyclerView recyclerView;
         });
     }
 
-    public void searchPharmaciesDeGardeApi(){
-        pharmacieDeGardeViewModel.searchPharmaciesDeGardeApi();
+    public void searchPharmaciesDeGardeByIdApi(int user_id){
+        pharmacieDeGardeViewModel.searchPharmaciesDeGardeByIdApi(user_id);
     }
 }

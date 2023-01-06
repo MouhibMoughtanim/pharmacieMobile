@@ -33,4 +33,7 @@ public interface PharmacieApi {
     @DELETE("pharmacies/deletePharmacie/id={id}")
     Call<Void> deletePharmacie(@Path("id") int id);
 
+    @GET("pharmacies/pharmacie/zone={id}")
+    Call<List<Pharmacie>> getPharmaciesByZoneId(@Path("id") int id);
+
 }

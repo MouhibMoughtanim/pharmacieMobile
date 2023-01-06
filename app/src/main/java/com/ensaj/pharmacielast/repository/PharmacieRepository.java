@@ -24,6 +24,7 @@ public class PharmacieRepository {
         pharmacieApiClient = PharmacieApiClient.getInstance();
     }
     public LiveData<Pharmacie> getPharmacieByUserId(){return pharmacieApiClient.getPharmacieByUserId();}
+    public LiveData<List<Pharmacie>> getPharmacieByZoneId(){return pharmacieApiClient.getPharmaciesByZoneId();}
 
 
 
@@ -32,6 +33,9 @@ public class PharmacieRepository {
     }
     public void searchPharmacieByUserIdApi(int user_id){
         pharmacieApiClient.getPharmacieByUserIdApi(user_id);
+    }
+    public void searchPharmacieByZoneIdApi(int zone_id){
+        pharmacieApiClient.getPharmacieByZoneIdApi(zone_id);
     }
 
 

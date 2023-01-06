@@ -21,7 +21,9 @@ import com.ensaj.pharmacielast.R;
 import com.ensaj.pharmacielast.adapter.VilleAdapter;
 import com.ensaj.pharmacielast.databinding.FragmentSlideshowClientBinding;
 import com.ensaj.pharmacielast.model.Ville;
+import com.ensaj.pharmacielast.model.Zone;
 import com.ensaj.pharmacielast.viewModels.VilleViewModel;
+import com.ensaj.pharmacielast.viewModels.ZoneViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -30,6 +32,8 @@ public class SlideshowFragment extends Fragment {
     private VilleViewModel villeViewModel;
     private RecyclerView recyclerView;
     private   VilleAdapter villeAdapter;
+    private ZoneViewModel zoneViewModel ;
+    //private int ville_id;
 
     private FragmentSlideshowClientBinding binding;
 
@@ -46,6 +50,7 @@ public class SlideshowFragment extends Fragment {
 
 
         villeViewModel = new ViewModelProvider(getActivity()).get(VilleViewModel.class);
+        zoneViewModel= new ViewModelProvider(getActivity()).get(ZoneViewModel.class);
 
         ObserveAnyChange();
 
@@ -85,6 +90,7 @@ public class SlideshowFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
+
         return root;
     }
 
@@ -100,7 +106,7 @@ public class SlideshowFragment extends Fragment {
             public void onChanged(List<Ville> villes) {
                 if(villes != null){
 
-                    villeAdapter = new VilleAdapter(getContext(),villes);
+                    villeAdapter = new VilleAdapter(getContext(),villes );
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
                     recyclerView.setLayoutManager(linearLayoutManager);
                     recyclerView.setAdapter(villeAdapter);

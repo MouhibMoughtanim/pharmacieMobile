@@ -19,6 +19,7 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        replaceFragment(new GalleryFragment());
 
         System.out.println(getIntent().getStringExtra("user_id")+"   adminactivity");
         binding.navigationView.setOnItemSelectedListener(item -> {

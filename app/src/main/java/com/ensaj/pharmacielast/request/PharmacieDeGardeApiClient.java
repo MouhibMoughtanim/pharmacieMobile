@@ -14,6 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PharmacieDeGardeApiClient {
+    private MutableLiveData<List<PharmacieDeGarde>> mPharmaciesDeGardeById;
 
     private MutableLiveData<List<PharmacieDeGarde>> mPharmaciesDeGarde;
     private static PharmacieDeGardeApiClient instance;
@@ -29,10 +30,15 @@ public class PharmacieDeGardeApiClient {
     //constructor and getters
     private PharmacieDeGardeApiClient() {
         mPharmaciesDeGarde = new MutableLiveData<>();
+                mPharmaciesDeGardeById = new MutableLiveData<>();
+
 
     }
     public LiveData<List<PharmacieDeGarde>> getPharmaciesDeGarde() {
         return mPharmaciesDeGarde;
+    }
+    public LiveData<List<PharmacieDeGarde>> getPharmaciesDeGardeById() {
+        return mPharmaciesDeGardeById;
     }
 
 
@@ -71,11 +77,30 @@ public class PharmacieDeGardeApiClient {
             }
         });
     }
+public void getPharmaciesDeGardeByIdApi(int id){
+        getPharmacieDeGardeById(id).enqueue(new Callback<List<PharmacieDeGarde>>() {
+            @Override
+            public void onResponse(Call<List<PharmacieDeGarde>> call, Response<List<PharmacieDeGarde>> response) {
+                List<PharmacieDeGarde> pharmaciesDeGarde = response.body();
+
+                mPharmaciesDeGardeById.postValue(pharmaciesDeGarde);
+            }
+
+            @Override
+            public void onFailure(Call<List<PharmacieDeGarde>> call, Throwable t) {
+                System.out.println("walo"+ t.getMessage());
+                mPharmaciesDeGardeById.postValue(null);
+            }
+        });
+    }
 
 
     //Retrofit calls
     private Call<List<PharmacieDeGarde>> getPharmacieDeGarde(){
         return RetrofitRequest.getPharmacieDeGardeAPI().getAllPharmaciesDeGarde();
+    }
+     private Call<List<PharmacieDeGarde>> getPharmacieDeGardeById(int id){
+        return RetrofitRequest.getPharmacieDeGardeAPI().getAllPharmaciesDeGardeByUserId(id);
     }
     private Call<PharmacieDeGarde> addPharmacieDeGarde(PharmacieDeGarde pharmacieDeGarde,String debut,String fin){
         return RetrofitRequest.getPharmacieDeGardeAPI().createPharmacieDeGarde(pharmacieDeGarde,debut,fin);

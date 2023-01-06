@@ -29,5 +29,10 @@ public interface ZoneApi {
     @DELETE("zones/deleteZone/id={id}")
     Call<Void> deleteZone(@Path("id") int id);
 
+    @GET("zones/zone/ville={id}")
+    Call<List<Zone>> getAllZonesByVille(@Path("id") int id);
+
+
+
 
 }

@@ -10,10 +10,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ensaj.pharmacielast.R;
 import com.ensaj.pharmacielast.model.PharmacieDeGarde;
+import com.ensaj.pharmacielast.model.Zone;
+import com.ensaj.pharmacielast.viewModels.VilleViewModel;
+import com.ensaj.pharmacielast.viewModels.ZoneViewModel;
 
 import java.util.List;
 
@@ -21,6 +26,7 @@ public class PharmacieDeGardeAdapter extends RecyclerView.Adapter<PharmacieDeGar
     private static final String TAG = "PharmacieDeGardeAdapter";
     private List<PharmacieDeGarde> pharmaciesDeGarde;
     private Context context;
+
 
 
     public PharmacieDeGardeAdapter(Context context, List<PharmacieDeGarde> pharmaciesDeGarde) {

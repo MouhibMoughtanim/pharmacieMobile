@@ -32,9 +32,13 @@ public class PharmacieDeGardeRepository {
     }
 
     public LiveData<List<PharmacieDeGarde>> getAllPharmaciesDeGarde(){return pharmacieDeGardeApiClient.getPharmaciesDeGarde();}
+    public LiveData<List<PharmacieDeGarde>> getAllPharmaciesDeGardeById(){return pharmacieDeGardeApiClient.getPharmaciesDeGardeById();}
 
     public void searchPharmaciesDeGarde(){
         pharmacieDeGardeApiClient.getPharmaciesDeGardeApi();
+    }
+     public void searchPharmaciesDeGardeById(int id){
+        pharmacieDeGardeApiClient.getPharmaciesDeGardeByIdApi(id);
     }
 
 }

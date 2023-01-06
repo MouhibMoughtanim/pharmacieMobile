@@ -1,8 +1,9 @@
 package com.ensaj.pharmacielast.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Garde {
+public class Garde implements Serializable {
     private int idGarde;
 
     private String type;

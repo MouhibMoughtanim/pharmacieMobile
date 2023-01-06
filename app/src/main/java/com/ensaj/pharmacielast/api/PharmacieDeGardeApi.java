@@ -19,4 +19,7 @@ public interface PharmacieDeGardeApi {
     @GET("pharmaciesDeGarde/all")
     Call<List<PharmacieDeGarde>> getAllPharmaciesDeGarde();
 
+    @GET("pharmaciesDeGarde/all/user_id={user_id}")
+    Call<List<PharmacieDeGarde>> getAllPharmaciesDeGardeByUserId(@Path("user_id") int user_id);
+
 }

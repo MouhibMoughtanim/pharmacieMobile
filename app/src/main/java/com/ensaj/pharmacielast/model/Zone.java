@@ -3,13 +3,15 @@ package com.ensaj.pharmacielast.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 public class Zone implements Parcelable {
 
     private int id;
 
     private String nom;
 
-    //private List<Pharmacie> pharmacies;
+    private List<Pharmacie> pharmacies;
 
     private Ville ville;
 
@@ -68,5 +70,13 @@ public class Zone implements Parcelable {
         parcel.writeInt(id);
         parcel.writeString(nom);
         parcel.writeParcelable(ville, i);
+    }
+
+    public List<Pharmacie> getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(List<Pharmacie> pharmacies) {
+        this.pharmacies = pharmacies;
     }
 }

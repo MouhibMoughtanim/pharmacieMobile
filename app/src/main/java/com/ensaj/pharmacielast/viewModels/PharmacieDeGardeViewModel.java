@@ -24,6 +24,16 @@ public class PharmacieDeGardeViewModel extends ViewModel {
     public void searchPharmaciesDeGardeApi(){
         pharmacieDeGardeRepository.searchPharmaciesDeGarde();
     }
+
+
+ public LiveData<List<PharmacieDeGarde>> getPharmaciesDeGardeById(){
+        return pharmacieDeGardeRepository.getAllPharmaciesDeGardeById();
+    }
+
+    public void searchPharmaciesDeGardeByIdApi(int id){
+        pharmacieDeGardeRepository.searchPharmaciesDeGardeById(id);
+    }
+
     public void addPharmacieDeGarde(PharmacieDeGarde pharmacieDeGarde,String debut,String fin){
         pharmacieDeGardeRepository.addPharmacieDeGarde(pharmacieDeGarde,debut,fin);
         System.out.println("MVVM");

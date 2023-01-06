@@ -1,13 +1,16 @@
 package com.ensaj.pharmacielast.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class PharmacieDeGarde {
+public class PharmacieDeGarde implements Serializable {
 
     private String dateFin;
     private String dateDebut;
     private Pharmacie pharmacie;
     private Garde garde;
+
+    private  PharmacieDeGardeRelation pharmacieDeGardeRelation;
 
     public PharmacieDeGarde() {
     }
@@ -42,5 +45,13 @@ public class PharmacieDeGarde {
 
     public void setGarde(Garde garde) {
         this.garde = garde;
+    }
+
+    public PharmacieDeGardeRelation getPharmacieDeGardeRelation() {
+        return pharmacieDeGardeRelation;
+    }
+
+    public void setPharmacieDeGardeRelation(PharmacieDeGardeRelation pharmacieDeGardeRelation) {
+        this.pharmacieDeGardeRelation = pharmacieDeGardeRelation;
     }
 }

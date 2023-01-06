@@ -1,8 +1,9 @@
 package com.ensaj.pharmacielast.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
     private int user_id;
     private String first_name;
     private String last_name;
