@@ -61,6 +61,7 @@ public class ZoneAdapter extends  RecyclerView.Adapter<ZoneAdapter.ZoneViewHolde
                 System.out.println(zone_id);
 
                  Intent pharmacieActivity = new Intent(context, PharmacieActivity.class);
+                 pharmacieActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                  pharmacieActivity.putExtra("zone_id",zone_id);
                  context.startActivity(pharmacieActivity);
 

@@ -4,16 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uiClient.gallery.GalleryFragment">
+    tools:context=".uiClient.gallery.GalleryFragment"
+    android:background="@drawable/guard_background">
 
     <Spinner
         android:id="@+id/pharmacie_garde_type_client"
         android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp" />
+        tools:layout_editor_absoluteX="2dp"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@drawable/dropdown_menu_background"
+        android:prompt="@string/prompt_text"
+        />
     <TextView
         android:id="@+id/garde_text_id_client"
         android:layout_width="wrap_content"
@@ -24,14 +29,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/searchByGarde"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/button"
+        android:elevation="4dp"
         android:text="Search"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.947" />
 </androidx.constraintlayout.widget.ConstraintLayout>

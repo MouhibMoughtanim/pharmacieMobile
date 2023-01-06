@@ -69,7 +69,7 @@ public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.Phar
                 mapsActivity.putExtra("nom", nomPharmacie);
                 mapsActivity.putExtra("latitude", latitudePharmacie);
                 mapsActivity.putExtra("longitude", longitudePharmacie);
-
+                mapsActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(mapsActivity);
 
             }
