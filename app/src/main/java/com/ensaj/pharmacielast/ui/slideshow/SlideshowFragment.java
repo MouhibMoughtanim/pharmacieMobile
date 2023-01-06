@@ -108,15 +108,15 @@ public class SlideshowFragment extends Fragment {
                    Garde garde = new Garde();garde.setIdGarde(Integer.parseInt(garde_text_id.getText().toString()));
                    Pharmacie pharmacie = new Pharmacie();
                    pharmacie.setId(Integer.parseInt(pharmacie_id.getText().toString()));
-                 PharmacieDeGarde pharmacieDeGarde = new PharmacieDeGarde();
+                   PharmacieDeGarde pharmacieDeGarde = new PharmacieDeGarde();
                // pharmacieDeGarde.setDateFin(Date.valueOf());
                 // pharmacieDeGarde.setDateDebut(Date.valueOf(garde_debut.getText().toString()));
-                pharmacieDeGarde.setGarde(garde);
-                pharmacieDeGarde.setPharmacie(pharmacie);
+                   pharmacieDeGarde.setGarde(garde);
+                   pharmacieDeGarde.setPharmacie(pharmacie);
 
-                addPharmacieDeGarde(pharmacieDeGarde,garde_debut.getText().toString(),garde_fin.getText().toString());
+                  addPharmacieDeGarde(pharmacieDeGarde,garde_debut.getText().toString(),garde_fin.getText().toString());
 
-                Toast.makeText(getContext(), ""+pharmacieDeGarde.getGarde().getIdGarde(), Toast.LENGTH_SHORT).show();
+                  Toast.makeText(getContext(), ""+pharmacieDeGarde.getGarde().getIdGarde(), Toast.LENGTH_SHORT).show();
             }
         });
 
