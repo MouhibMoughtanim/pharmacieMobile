@@ -35,5 +35,8 @@ public interface PharmacieApi {
 
     @GET("pharmacies/pharmacie/zone={id}")
     Call<List<Pharmacie>> getPharmaciesByZoneId(@Path("id") int id);
+    @GET("pharmacies/pharmacie/garde={id}")
+    Call<List<Pharmacie>> getPharmaciesEnGardeByGardeId(@Path("id") int id);
+
 
 }

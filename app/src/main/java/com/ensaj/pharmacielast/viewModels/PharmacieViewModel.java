@@ -30,11 +30,19 @@ public class PharmacieViewModel extends ViewModel {
         return pharmacieRepository.getPharmacieByZoneId();
     }
 
+    public LiveData<List<Pharmacie>> getPharmacieByGardeId(){
+        return pharmacieRepository.getPharmacieByGardeId();
+    }
+
     public void searchPharmacieByUserIdApi(int user_id){
         pharmacieRepository.searchPharmacieByUserIdApi(user_id);
     }
 
     public void searchPharmacieByZoneIdApi(int zone_id){
         pharmacieRepository.searchPharmacieByZoneIdApi(zone_id);
+    }
+
+    public void searchPharmacieByGardeIdApi(int garde_id){
+        pharmacieRepository.searchPharmacieByGardeIdApi(garde_id);
     }
 }

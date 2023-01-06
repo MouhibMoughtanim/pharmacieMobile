@@ -21,6 +21,7 @@ public class PharmacieApiClient {
     private MutableLiveData<List<Pharmacie>> mPharmacies;
     private MutableLiveData<Pharmacie> mPharmacieByUserId;
     private MutableLiveData<List<Pharmacie>> mPharmacieByZoneId;
+    private MutableLiveData<List<Pharmacie>> mPharmacieByGardeId;
 
     private static PharmacieApiClient instance;
 
@@ -37,6 +38,7 @@ public class PharmacieApiClient {
         mPharmacies = new MutableLiveData<>();
         mPharmacieByUserId = new MutableLiveData<>();
         mPharmacieByZoneId = new MutableLiveData<>();
+        mPharmacieByGardeId = new MutableLiveData<>();
     }
     public LiveData<List<Pharmacie>> getPharmacies() {
         return mPharmacies;
@@ -47,6 +49,10 @@ public class PharmacieApiClient {
     public LiveData<List<Pharmacie>> getPharmaciesByZoneId() {
         return mPharmacieByZoneId;
     }
+    public LiveData<List<Pharmacie>> getPharmaciesByGardeId() {
+        return mPharmacieByGardeId;
+    }
+
 
 
     // Retrofit implementation
@@ -67,6 +73,7 @@ public class PharmacieApiClient {
             }
         });
     }
+
     public void getPharmacieApi(){
         getPharmacie().enqueue(new Callback<List<Pharmacie>>() {
             @Override
@@ -116,7 +123,24 @@ public class PharmacieApiClient {
         });
     }
 
-        //Retrofit calls
+    public void getPharmacieByGardeIdApi(int garde_id) {
+
+        getPharmaciesByGardeId(garde_id).enqueue(new Callback<List<Pharmacie>>() {
+            @Override
+            public void onResponse(Call<List<Pharmacie>> call, Response<List<Pharmacie>> response) {
+                List<Pharmacie> pharmacies = response.body();
+                System.out.println("hhhhhhh");
+                mPharmacieByGardeId.postValue(pharmacies);
+            }
+
+            @Override
+            public void onFailure(Call<List<Pharmacie>> call, Throwable t) {
+                mPharmacieByGardeId.postValue(null);
+            }
+        });
+    }
+
+    //Retrofit calls
     private Call<List<Pharmacie>> getPharmacie(){
         return RetrofitRequest.getPharmacieAPI().getPharmacies();
     }
@@ -129,4 +153,8 @@ public class PharmacieApiClient {
     private Call<List<Pharmacie>> getPharmaciesByZoneId(int zone_id){
         return RetrofitRequest.getPharmacieAPI().getPharmaciesByZoneId(zone_id);
     }
+    private Call<List<Pharmacie>> getPharmaciesByGardeId(int garde_id){
+        return RetrofitRequest.getPharmacieAPI().getPharmaciesEnGardeByGardeId(garde_id);
+    }
+
 }

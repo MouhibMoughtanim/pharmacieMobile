@@ -1,5 +1,6 @@
 package com.ensaj.pharmacielast.uiClient.gallery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.ensaj.pharmacielast.MapsActivity;
+import com.ensaj.pharmacielast.PharmacieActivity2;
 import com.ensaj.pharmacielast.R;
 import com.ensaj.pharmacielast.databinding.FragmentGalleryClientBinding;
 import com.ensaj.pharmacielast.model.Garde;
@@ -54,6 +57,11 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), ""+garde_text_id.getText().toString(), Toast.LENGTH_SHORT).show();
+                Intent pharmacieActivity2 = new Intent(getActivity(), PharmacieActivity2.class);
+
+                pharmacieActivity2.putExtra("garde_id", garde_text_id.getText().toString());
+
+                getActivity().startActivity(pharmacieActivity2);
             }
         });
 
