@@ -1,7 +1,7 @@
 # Localisation des pharmacies Partie Mobile
 
 L'objectif de ce projet est de mettre en place une interface de localisation des pharmacies de jour comme de nuit ou bien celles 24H/24,
-ou bien dans une zone de ville choisie reposant sur l'architecture MVVM.
+ou bien dans une zone de ville choisie reposant sur l'architecture MVVM, utilisant Retrofit pour la consommation des API.
 
 # Fonctionnalités
 
