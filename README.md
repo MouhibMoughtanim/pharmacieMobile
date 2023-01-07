@@ -13,11 +13,11 @@ ou bien dans une zone de ville choisie reposant sur l'architecture MVVM.
 
 Pour démarrer ce projet Android, vous avez besoin de quelques outils et composants logiciels :
 
--Un ordinateur avec une installation de JDK (Java Development Kit).
+1. Un ordinateur avec une installation de JDK (Java Development Kit).
 
--Android Studio, l'environnement de développement intégré (IDE) recommandé pour le développement Android. 
+2. Android Studio, l'environnement de développement intégré (IDE) recommandé pour le développement Android. 
 
--Un émulateur Android ou un appareil physique Android pour exécuter et tester votre application. Vous pouvez utiliser l'émulateur intégré d'Android Studio ou connecter un appareil physique à votre ordinateur via USB.
+3. Un émulateur Android ou un appareil physique Android pour exécuter et tester votre application. Vous pouvez utiliser l'émulateur intégré d'Android Studio ou connecter un appareil physique à votre ordinateur via USB.
 
 # Déploiement
 
