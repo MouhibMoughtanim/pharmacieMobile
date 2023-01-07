@@ -5,9 +5,9 @@ ou bien dans une zone de ville choisie reposant sur l'architecture MVVM.
 
 # Fonctionnalités
 
--Sélection d'une pharmacie à partir d'une liste de pharmacie filtrer par ville et par zone.
--Affichage des pharmacies de garde filtrés par type de garde.
--Afficher la pharmacie la plus proche.
+1. Sélection d'une pharmacie à partir d'une liste de pharmacie filtrer par ville et par zone.
+2. Affichage des pharmacies de garde filtrés par type de garde.
+3. Afficher la pharmacie la plus proche.
 
 # Mise en place du projet
 
