@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+
     android:padding="10dp"
-    tools:context=".ui.gallery.GalleryFragment">
+    tools:context=".ui.gallery.GalleryFragment"
+    android:background="@drawable/background2">
 
     <ImageView
         android:id="@+id/pharmacie_logo"
         android:layout_width="227dp"
         android:layout_height="109dp"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,12 +25,13 @@
         android:id="@+id/pharmacie_titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Pharmacie Form"
+        android:layout_marginTop="232dp"
         android:gravity="center"
+        android:text=""
         android:textSize="30sp"
+
         app:layout_constraintTop_toBottomOf="@+id/pharmacie_logo"
-        tools:layout_editor_absoluteX="206dp" />
+        tools:layout_editor_absoluteX="9dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -43,11 +46,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/pharmacie_nom"
+                android:text="Nom  :"
+                android:textStyle="bold"
+                android:typeface="serif">
 
+            </TextView>
             <EditText
                 android:id="@+id/pharmacie_nom"
-                android:layout_width="match_parent"
+
                 android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="55dp"
                 android:paddingLeft="10dp"
                 android:background="@color/white"
@@ -56,22 +68,43 @@
 
 
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/pharmacie_adresse"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:layout_height="55dp"
-            android:hint="Pharmacie Address"/>
+            android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:labelFor="@+id/pharmacie_adresse"
+                android:text="Adresse   :"
+                android:textStyle="bold"
+                android:typeface="serif">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/pharmacie_adresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+                android:hint="Pharmacie Address"
+                android:padding="10dp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/pharmacie_latitude"
+                android:text="Latitude   :"
+                android:textStyle="bold"
+                android:typeface="serif">
 
+            </TextView>
             <EditText
                 android:id="@+id/pharmacie_latitude"
                 android:layout_width="0dp"
@@ -81,6 +114,15 @@
                 android:inputType="numberDecimal"
                 android:background="@color/white"
                 android:hint="Latitude"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/pharmacie_longitude"
+                android:text="Longitude   :"
+                android:textStyle="bold"
+                android:typeface="serif">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/pharmacie_longitude"
@@ -94,24 +136,21 @@
 
         </LinearLayout>
 
-
-
-
-
-
     </LinearLayout>
 
     <TextView
         android:id="@+id/pharmacie_status"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:text="TextView"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796" />
-
+        app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

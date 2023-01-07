@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <!-- Set the background color -->
+        <color android:color="#FFFFFF" />
+    </item>
+    <item>
+        <!-- Set the background image -->
+        <bitmap android:src="@drawable/guard"
+            android:scaleType="fitCenter"
+
+            />
+    </item>
+</layer-list>
