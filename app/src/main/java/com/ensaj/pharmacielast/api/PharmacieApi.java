@@ -38,5 +38,8 @@ public interface PharmacieApi {
     @GET("pharmacies/pharmacie/garde={id}")
     Call<List<Pharmacie>> getPharmaciesEnGardeByGardeId(@Path("id") int id);
 
+    @GET("pharmacies/")
+    Call<Pharmacie> getPharmacieNearOne(@Path("id") int id);
+
 
 }
