@@ -23,10 +23,11 @@ Pour démarrer ce projet Android, vous avez besoin de quelques outils et composa
 
 Voici les étapes générales pour déployer ce projet Android :
 
--Ouvrez Android Studio et créez un nouveau projet ou ouvrez un projet existant.
--Connectez votre appareil Android à votre ordinateur via USB ou lancez l'émulateur Android.
--Sélectionnez l'appareil ou l'émulateur sur lequel vous souhaitez déployer le projet en cliquant sur "Run > Run 'app'" dans le menu de l'IDE.
--Android Studio va alors compiler et construire votre projet, puis le déployer sur l'appareil ou l'émulateur sélectionné.
+1. Ouvrez Android Studio et créez un nouveau projet ou ouvrez un projet existant.
+2. Connectez votre appareil Android à votre ordinateur via USB ou lancez l'émulateur Android.
+3. Sélectionnez l'appareil ou l'émulateur sur lequel vous souhaitez déployer le projet en cliquant sur "Run > Run 'app'" dans le menu de l'IDE.
+4. Android Studio va alors compiler et construire votre projet, puis le déployer sur l'appareil ou l'émulateur sélectionné.
+5. 
 -Note : Assurez-vous que vous avez activé le débogage USB sur votre appareil Android avant de le connecter à votre ordinateur.
 Pour ce faire, allez dans les paramètres de votre appareil, puis dans la section "Développeur" et activez l'option "Débogage USB".
 
